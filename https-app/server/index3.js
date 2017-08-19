@@ -4,15 +4,13 @@ import express from "express";
 import https from "https";
 
 const app = express();
-const directoryToServe = "build";
+const directoryToServe = "client";
 const port = 443;
 
 app.use("/", express.static(path.join(__dirname, "..", directoryToServe)));
 
 app.post('/',(req,res)=>{
-  var filepath = path.join(__dirname, "..", directoryToServe,'index.html')
-  var page =fs.readFileSync(filepath,'utf8')
-  res.end(page)
+  res.send('Hello')
 })
 
 const httpsOptions = {
